@@ -11,7 +11,7 @@ curl -s https://api.github.com/repos/mozilla/mozjpeg/releases/latest \
 | tr -d , \
 | wget -qi -
 
-unzip v*.zip
+unzip v*
 
 cd mozjpeg-*
 mkdir build
