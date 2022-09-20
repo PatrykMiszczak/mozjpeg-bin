@@ -13,7 +13,7 @@ curl -s https://api.github.com/repos/mozilla/mozjpeg/releases/latest \
 
 unzip v*
 
-cd mozjpeg-*
+cd mozilla-mozjpeg-*
 mkdir build
 cd build
 sudo cmake -G"Unix Makefiles" -DPNG_SUPPORTED=OFF ../
