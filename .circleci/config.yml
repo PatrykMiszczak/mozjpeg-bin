@@ -2,12 +2,23 @@ jobs:
   # TODO
   # build_linux:
   #   docker:
-      
+  #     docker:
+  #     - image: cimg/base:2021.04
+  #       auth:
+  #         username: mydockerhub-user
+  #         password: $DOCKERHUB_PASSWORD
+
   build_macos:
     macos:
       xcode: 12.5.1
     steps:
       - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+            brew install wget cmake
       - run:
           name: Build
           command: |
