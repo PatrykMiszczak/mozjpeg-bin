@@ -3,9 +3,7 @@ jobs:
     docker:
       docker:
         - image: cimg/base:current
-          auth:
-            username: misp44
-            password: $DOCKERHUB_ACCESS_TOKEN
+      resource_class: small
       steps:
         - run: echo "Hello world"
 
@@ -32,7 +30,8 @@ workflows:
     jobs:
       - build_linux:
           context: Docker credentials
-      - build_macos
+      # 
+      # - build_macos
   nightly:
     triggers:
       - schedule:
