@@ -1,11 +1,13 @@
 jobs:
   build_linux:
     docker:
-      docker:
-        - image: cimg/base:current
-      resource_class: small
-      steps:
-        - run: echo "Hello world"
+      - image: cimg/base:current
+        auth:
+          username: misp44
+          password: $DOCKERHUB_ACCESS_TOKEN
+    resource_class: small
+    steps:
+      - run: echo "Hello world"
 
   build_macos:
     macos:
