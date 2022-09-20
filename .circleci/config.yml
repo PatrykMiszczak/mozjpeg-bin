@@ -16,11 +16,11 @@ jobs:
 
 workflows:
   version: 2
-  # TODO
-  # commit:
-  #   jobs:
-  #     - build_linux
-  #     - build_macos
+  commit:
+    jobs:
+      # TODO
+      # - build_linux
+      - build_macos
   nightly:
     triggers:
       - schedule:
