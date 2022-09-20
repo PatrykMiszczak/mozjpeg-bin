@@ -43,8 +43,7 @@ workflows:
     jobs:
       - build_linux:
           context: Docker credentials
-      # 
-      # - build_macos
+      - build_macos
   nightly:
     triggers:
       - schedule:
@@ -54,5 +53,6 @@ workflows:
               only:
                 - main
     jobs:
-      - build_linux
+      - build_linux:
+          context: Docker credentials
       - build_macos
