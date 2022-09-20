@@ -1,0 +1,7 @@
+jobs:
+  build-macos:
+    macos:
+      xcode: 12.5.1
+    steps:
+      - checkout
+      - run: echo "hello world"
