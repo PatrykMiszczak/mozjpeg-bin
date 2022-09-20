@@ -1,12 +1,14 @@
 jobs:
   # TODO
-  # build_linux:
-  #   docker:
-  #     docker:
-  #     - image: cimg/base:2021.04
-  #       auth:
-  #         username: mydockerhub-user
-  #         password: $DOCKERHUB_PASSWORD
+  build_linux:
+    docker:
+      docker:
+        - image: cimg/base:2021.04
+          auth:
+            username: mydockerhub-user
+            password: $DOCKERHUB_ACCESS_TOKEN
+        steps:
+          - run: echo "Hello world"
 
   build_macos:
     macos:
@@ -30,7 +32,8 @@ workflows:
   commit:
     jobs:
       # TODO
-      # - build_linux
+      - build_linux:
+          context: Docker credentials
       - build_macos
   nightly:
     triggers:
