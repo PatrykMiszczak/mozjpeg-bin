@@ -14,8 +14,8 @@ jobs:
             chmod +x ./build.sh
             ./build.sh
       - store_artifacts:
-        path: mozjpeg-master/build
-        destination: linux_build
+          path: mozjpeg-master/build
+          destination: linux_build
 
   build_macos:
     macos:
@@ -34,8 +34,8 @@ jobs:
             chmod +x ./build.sh
             ./build.sh
       - store_artifacts:
-        path: mozjpeg-master/build
-        destination: macos_build
+          path: mozjpeg-master/build
+          destination: macos_build
 
 workflows:
   version: 2
