@@ -1,10 +1,14 @@
 #!/bin/bash
 
-wget https://codeload.github.com/mozilla/mozjpeg/zip/master -O mozjpeg-master.zip
+curl -s https://api.github.com/repos/mozilla/mozjpeg/releases/latest \
+| grep "mozjpeg*.zip" \
+| cut -d : -f 2,3 \
+| tr -d \" \
+| wget -qi -
 
-unzip mozjpeg-master.zip
+unzip v*.zip
 
-cd mozjpeg-master
+cd mozjpeg-*
 mkdir build
 cd build
 sudo cmake -G"Unix Makefiles" -DPNG_SUPPORTED=OFF ../
