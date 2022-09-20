@@ -1,7 +1,34 @@
 jobs:
-  build-macos:
+  # TODO
+  # build_linux:
+  #   docker:
+      
+  build_macos:
     macos:
       xcode: 12.5.1
     steps:
       - checkout
-      - run: echo "hello world"
+      - run:
+          name: Build
+          command: |
+            chmod +x ./build.sh
+            ./build.sh
+
+workflows:
+  version: 2
+  # TODO
+  # commit:
+  #   jobs:
+  #     - build_linux
+  #     - build_macos
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - build_linux
+      - build_macos
